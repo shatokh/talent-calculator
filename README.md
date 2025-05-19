@@ -1,4 +1,7 @@
-# sv
+# Talent calculator for Skylore RPG game
+![Project Logo](static/images/logo.png)
+
+# eng
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
