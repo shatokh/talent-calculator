@@ -7,13 +7,13 @@
   }
 
   const row1: ClassMenuItem[] = [
-    { id: 'guardian', nameRU: 'Страж', nameEN: 'Guardian', iconPath: '/images/classes/sentinel.png' },
+    { id: 'guardian', nameRU: 'Страж', nameEN: 'Guardian', iconPath: '/images/classes/guardian.png' },
     { id: 'alchemist', nameRU: 'Алхимик', nameEN: 'Alchemist', iconPath: '/images/classes/alchemist.png' }
   ];
   const row2: ClassMenuItem[] = [
-    { id: 'shadow', nameRU: 'Тень', nameEN: 'Shadow', iconPath: '/images/classes/rogue.png' },
+    { id: 'shadow', nameRU: 'Тень', nameEN: 'Shadow', iconPath: '/images/classes/Shadow.png' },
     { id: 'hunter', nameRU: 'Охотник', nameEN: 'Hunter', iconPath: '/images/classes/hunt.png' },
-    { id: 'wizard', nameRU: 'Колдун', nameEN: 'Wizard', iconPath: '/images/classes/mage.png' }
+    { id: 'mage', nameRU: 'Маг', nameEN: 'Mage', iconPath: '/images/classes/mage.png' }
   ];
 </script>
 
