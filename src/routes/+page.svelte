@@ -11,7 +11,7 @@
     { id: 'alchemist', nameRU: 'Алхимик', nameEN: 'Alchemist', iconPath: '/images/classes/alchemist.png' }
   ];
   const row2: ClassMenuItem[] = [
-    { id: 'shadow', nameRU: 'Тень', nameEN: 'Shadow', iconPath: '/images/classes/Shadow.png' },
+    { id: 'shadow', nameRU: 'Тень', nameEN: 'Shadow', iconPath: '/images/classes/shadow.png' },
     { id: 'hunter', nameRU: 'Охотник', nameEN: 'Hunter', iconPath: '/images/classes/hunt.png' },
     { id: 'mage', nameRU: 'Маг', nameEN: 'Mage', iconPath: '/images/classes/mage.png' }
   ];
