@@ -1,10 +1,9 @@
 <script>
-
 </script>
 
 <div
-  class="relative w-full h-screen bg-cover bg-center flex justify-center items-center p-4"
-  style="background-image: url('/images/backgrounds/background.png');"
+	class="relative flex h-screen w-full items-center justify-center bg-cover bg-center p-4"
+	style="background-image: url('/images/backgrounds/background.png');"
 >
-  <slot />
-  </div>
+	<slot />
+</div>

@@ -1,4 +1,5 @@
 # Talent calculator for Skylore RPG game on Svelte + Tailwind
+
 ![Project Logo](static/images/logo.png)
 
 # Svelte
@@ -6,6 +7,7 @@
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
 # Tailwindcss
+
 A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup [`Tailwindcss`](https://tailwindcss.com/)
 
 ## Creating a project
