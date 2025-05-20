@@ -1,24 +1,36 @@
 <script lang="ts">
-    import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher } from 'svelte'; // createEventDispatcher все еще доступен, но $on() может быть альтернативой для кастомных событий в Svelte 5. Для on:click пропсов это не нужно.
 
-    export let onClick: () => void;
-    export let testId: string = 'action-button';
-    export let disabled: boolean = false;
-    export let additionalClass: string = '';
+    // Объявление пропсов с использованием $props().
+    // Это деструктуризация объекта, который возвращает $props().
+    // Мы задаем значения по умолчанию прямо здесь.
+    let { 
+        onClick, 
+        testId = 'action-button', 
+        disabled = false, 
+        additionalClass = '' 
+    } = $props<{
+        onClick: () => void;
+        testId?: string; 
+        disabled?: boolean; 
+        additionalClass?: string; 
+    }>();
 
-    const dispatch = createEventDispatcher();
+    // Получение слотов с использованием $slots()
+    // Это функция, которая возвращает объект, содержащий переданные слоты.
+    // Нам не нужно явно проверять slots.default, так как <slot /> сам по себе рендерит default слот, если он есть.
+    const slots = $slots(); //
 
     function handleClick() {
         if (!disabled) {
-            dispatch('click');
-            onClick();
+            // Если onClick - это функция, переданная как пропс, то просто вызываем её.
+            onClick(); 
         }
     }
 </script>
 
 <button
-    on:click={handleClick}
-    disabled={disabled}
+    onclick={handleClick} disabled={disabled}
     data-test-id={testId}
     class={`
         mt-[50px] scale-150 relative z-10 px-8 py-3 rounded-lg text-lg font-bold
@@ -33,5 +45,4 @@
         ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
     `}
 >
-    <slot>Button</slot>
-</button>
+    <slot /> </button>
