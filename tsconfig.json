@@ -1,13 +1,6 @@
 {
   "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",            
-    "paths": {
-      "$app/*": [".svelte-kit/types/src/app/*"],
-      "$app": [".svelte-kit/types/src/app/index.d.ts"],
-      "$lib/*": ["src/lib/*"],
-      "$lib": ["src/lib"]
-    },
     "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,
@@ -16,8 +9,13 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "moduleResolution": "node",
-    "types": ["vite/client", "vitest/globals"]
+    "moduleResolution": "bundler",
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "svelte",
+      "@sveltejs/kit"
+    ]
   },
   "include": [
     "src/**/*.ts",

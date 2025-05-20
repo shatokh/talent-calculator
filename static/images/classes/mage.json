@@ -1,0 +1,22 @@
+{
+  "classId": "mage",
+  "classNameRU": "Маг",
+  "classNameEN": "Mage",
+  "backgroundImage": "/images/talents/backgrounds/mage_bg.png",
+  "talents": [
+    {
+      "id": "mage_talent_001",
+      "nameRU": "Огненный шар",
+      "nameEN": "Fireball",
+      "descriptionRU": "Запускает огненный сгусток, наносящий урон цели.",
+      "descriptionEN": "Launches a fiery projectile, damaging the target.",
+      "icon": "/images/talents/mage/fireball.png",
+      "type": "main_active",
+      "shape": "square",
+      "position": { "row": 1, "col": 1 },
+      "dependencies": [],
+      "maxRank": 1
+    }
+
+  ]
+}

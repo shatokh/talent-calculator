@@ -45,4 +45,4 @@ You can preview the production build with `npm run preview`.
 
 ## Testing
 
-All tests are descibed there [tests/README.md](tests/README.md).
+All tests are descibed there [e2e/README.md](e2e/README.md).
