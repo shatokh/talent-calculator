@@ -48,3 +48,11 @@ You can preview the production build with `npm run preview`.
 ## Testing
 
 All tests are descibed there [e2e/README.md](e2e/README.md).
+
+## Node version changing
+
+```bash
+nvm use 24.0.2
+nvm use latest
+nvm use 18.18.2
+```

@@ -8,7 +8,6 @@
 
 <button
 	class="relative p-1"
-	role="button"
 	aria-pressed={isActive}
 	class:rounded-full={talent.shape === 'round'}
 	class:rounded={talent.shape === 'square'}
