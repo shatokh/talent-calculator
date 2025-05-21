@@ -24,17 +24,17 @@
     }
 </script>
 
-<div class="flex flex-col items-center justify-center" data-test-id="class-page-container">
+<div class="flex flex-col items-center justify-center" data-testid="class-page-container">
     {#if ['guardian', 'shadow', 'hunter', 'mage', 'alchemist'].includes(cls)}
         <img
             src={imgSrc}
             alt={`Talent tree for ${displayName}`}
             class="h-auto w-full max-w-xl object-contain sm:w-auto sm:max-w-2xl md:max-w-4xl lg:max-w-[1000px]"
             style="max-height: 80vh;"
-            data-test-id="talent-tree-image"
+            data-testid="talent-tree-image"
         />
     {:else}
-        <p class="text-center text-xl text-white" data-test-id="talent-tree-placeholder">
+        <p class="text-center text-xl text-white" data-testid="talent-tree-placeholder">
             Дерево талантов для «{displayName}» скоро здесь появится.
         </p>
     {/if}

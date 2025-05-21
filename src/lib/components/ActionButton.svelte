@@ -1,37 +1,25 @@
 <script lang="ts">
-    import { createEventDispatcher } from 'svelte'; // createEventDispatcher все еще доступен, но $on() может быть альтернативой для кастомных событий в Svelte 5. Для on:click пропсов это не нужно.
+    // createEventDispatcher больше не нужен для on:click пропсов,
+    // а для @render $slots.default() он также не используется.
+    // Если у вас есть кастомные события, которые вы хотите отправлять,
+    // вы можете использовать $on() или createEventDispatcher.
 
-    // Объявление пропсов с использованием $props().
-    // Это деструктуризация объекта, который возвращает $props().
-    // Мы задаем значения по умолчанию прямо здесь.
-    let { 
-        onClick, 
-        testId = 'action-button', 
-        disabled = false, 
-        additionalClass = '' 
-    } = $props<{
-        onClick: () => void;
-        testId?: string; 
-        disabled?: boolean; 
-        additionalClass?: string; 
-    }>();
-
-    // Получение слотов с использованием $slots()
-    // Это функция, которая возвращает объект, содержащий переданные слоты.
-    // Нам не нужно явно проверять slots.default, так как <slot /> сам по себе рендерит default слот, если он есть.
-    const slots = $slots(); //
+    export let onClick: () => void;
+    export let testId: string = 'action-button';
+    export let disabled: boolean = false;
+    export let additionalClass: string = '';
 
     function handleClick() {
         if (!disabled) {
-            // Если onClick - это функция, переданная как пропс, то просто вызываем её.
-            onClick(); 
+            onClick();
         }
     }
 </script>
 
 <button
-    onclick={handleClick} disabled={disabled}
-    data-test-id={testId}
+    on:click={handleClick}
+    disabled={disabled}
+    data-testid={testId}
     class={`
         mt-[50px] scale-150 relative z-10 px-8 py-3 rounded-lg text-lg font-bold
         bg-[#6dc64e] hover:bg-[#7bc85e] active:bg-[#61b047]
@@ -45,4 +33,5 @@
         ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
     `}
 >
-    <slot /> </button>
+    <slot />
+</button>

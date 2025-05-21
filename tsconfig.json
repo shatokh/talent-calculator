@@ -1,16 +1,26 @@
 {
-	"extends": "./.svelte-kit/tsconfig.json",
-	"compilerOptions": {
-		"allowJs": true,
-		"checkJs": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"sourceMap": true,
-		"strict": true,
-		"moduleResolution": "bundler",
-		"types": ["vite/client", "vitest/globals", "svelte", "@sveltejs/kit"]
-	},
-	"include": ["src/**/*.ts", "src/**/*.svelte", "src/lib/types.ts"]
+  "extends": "./.svelte-kit/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "moduleResolution": "bundler",
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "jsxImportSource": "svelte",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "svelte/elements"
+    ]
+  },
+  "include": ["src/**/*.ts", "src/**/*.svelte", "src/lib/types.ts"],
+  "exclude": ["node_modules", "dist", "build", ".svelte-kit"]
 }
