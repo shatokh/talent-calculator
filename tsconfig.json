@@ -18,7 +18,8 @@
     "types": [
       "vite/client",
       "vitest/globals",
-      "svelte/elements"
+      "svelte/elements",
+      ".svelte-kit/types/**/*"
     ]
   },
   "include": ["src/**/*.ts", "src/**/*.svelte", "src/lib/types.ts"],
