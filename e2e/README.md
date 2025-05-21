@@ -68,6 +68,7 @@ Basic commands
 ```bash
 # Run all E2E tests
 npm run test:e2e
+npx playwright test --ui
 
 # Run a single test file
 npm run test:e2e -- tests/e2e/home.spec.ts
