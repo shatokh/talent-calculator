@@ -1,6 +1,9 @@
 # .github/workflows/playwright.yml
 name: Playwright Tests
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [dev, master]
