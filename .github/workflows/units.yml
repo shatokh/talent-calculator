@@ -2,14 +2,18 @@
 
 name: Unit Tests
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 on:
   push:
-    branches: [dev, master]
+    branches: [dev]
   pull_request:
-    branches: [dev, master]
+    branches: [master]
 
 jobs:
   run_unit_tests:
