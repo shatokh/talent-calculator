@@ -1,5 +1,7 @@
 {
+  // Берём все настройки и include из .svelte-kit/tsconfig.json
   "extends": "./.svelte-kit/tsconfig.json",
+
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
@@ -15,12 +17,20 @@
     "jsx": "preserve",
     "jsxImportSource": "svelte",
     "lib": ["esnext", "dom", "dom.iterable"],
+
+    // Добавляем @sveltejs/kit, чтобы TS увидел модули $app/*
     "types": [
       "vite/client",
       "vitest/globals",
-      "svelte/elements"
+      "svelte/elements",
+      "@sveltejs/kit"
     ]
   },
-  "include": ["src/**/*.ts", "src/**/*.svelte", "src/lib/types.ts"],
-  "exclude": ["node_modules", "dist", "build", ".svelte-kit"]
+
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    ".svelte-kit"
+  ]
 }
