@@ -1,4 +1,4 @@
-name: "CodeQL"
+name: 'CodeQL'
 
 permissions:
   contents: read
@@ -6,11 +6,11 @@ permissions:
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
   schedule:
-    - cron: '0 12 * * 4'         # еженедельно по четвергам в 12:00 UTC
+    - cron: '0 12 * * 4' # еженедельно по четвергам в 12:00 UTC
 
 jobs:
   analyze:

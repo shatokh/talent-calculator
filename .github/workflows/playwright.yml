@@ -7,6 +7,7 @@ concurrency:
 
 permissions:
   contents: read
+  actions: write
 
 on:
   push:
@@ -25,7 +26,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: 'npm'                 # кешируем зависимості
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
@@ -34,11 +35,39 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test   # webServer в конфиге запустит dev-сервер
+        # настроено в playwright.config.ts: webServer и репортеры (junit/html)
+        run: npx playwright test
 
-      - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
+      # HTML-отчёт Playwright
+      - name: Upload Playwright HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: playwright-report
           path: playwright-report/
-          retention-days: 30
+
+      # JUnit-XML результаты (нужно включить в playwright.config.ts):
+      #   reporter: [['junit', { outputFile: 'test-results/results.xml' }]]
+      - name: Upload JUnit Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-results
+          path: test-results/**/*.xml
+
+      # Скриншоты при падениях (если у вас в playwright.config.ts включено сохранение):
+      #   screenshot: 'only-on-failure'
+      - name: Upload Failure Screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-screenshots
+          path: test-results/screenshots/
+
+      # Видео проваленных тестов (если включено video: 'retry-with-video')
+      - name: Upload Failure Videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-videos
+          path: test-results/videos/

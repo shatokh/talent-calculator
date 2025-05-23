@@ -14,9 +14,9 @@ This project uses materials from the game **Skylore RPG**, developed by **TITULU
 
 This includes:
 
-- Game icons and images  
-- Skill names and descriptions  
-- Game-related terminology or structure  
+- Game icons and images
+- Skill names and descriptions
+- Game-related terminology or structure
 
 These materials are:
 
