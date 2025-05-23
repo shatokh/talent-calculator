@@ -1,5 +1,10 @@
 # Talent calculator for Skylore RPG game on Svelte + Tailwind
 
+[![Playwright Tests](https://github.com/shatokh/talent-calculator/actions/workflows/playwright.yml/badge.svg?branch=master)](https://github.com/shatokh/talent-calculator/actions/workflows/playwright.yml)  
+[![Unit Tests](https://github.com/shatokh/talent-calculator/actions/workflows/units.yml/badge.svg?branch=master)](https://github.com/shatokh/talent-calculator/actions/workflows/units.yml)  
+[![CodeQL](https://github.com/shatokh/talent-calculator/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/shatokh/talent-calculator/actions/workflows/codeql.yml)  
+[![Dependabot Updates](https://github.com/shatokh/talent-calculator/actions/workflows/dependabot/dependabot-updates/badge.svg?branch=master)](https://github.com/shatokh/talent-calculator/actions/workflows/dependabot/dependabot-updates)
+
 ![Project Logo](static/images/logo.png)
 
 # Svelte
