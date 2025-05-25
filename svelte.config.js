@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { resolve } from 'path';
 
@@ -8,14 +8,13 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
+		// Vercel требует специальный адаптер
 		adapter: adapter(),
 
-		// Здесь прописываем алиасы для удобных импортов
+		// Алиасы для удобных импортов
 		alias: {
-			// Теперь $lib резолвится в src/lib
 			$lib: resolve('./src/lib')
-			// при необходимости можно добавить и другие:
-			// $components: resolve('./src/lib/components')
+			// Можно добавить дополнительные алиасы при необходимости
 		}
 	}
 };
