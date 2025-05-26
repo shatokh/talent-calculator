@@ -1,8 +1,11 @@
 <script lang="ts">
-	import '../app.css'; // Импортируем ваш глобальный Tailwind CSS
-
+	import '../app.css'; // Импортируем глобальный Tailwind CSS
 	let { children } = $props();
 </script>
+
+<svelte:head>
+	<script src="/_vercel/insights/script.js" defer></script>
+</svelte:head>
 
 {@render children()}
 
@@ -10,19 +13,15 @@
 	/* Убедимся, что HTML и BODY занимают всю доступную высоту */
 	html,
 	body {
-		height: 100%; /* Устанавливаем высоту в 100% от viewport */
-		margin: 0; /* Убираем стандартные отступы браузера */
-		padding: 0; /* Убираем стандартные отступы браузера */
-		/* overflow: hidden; */ /* Если вы хотите предотвратить прокрутку на всех страницах.
-                                 Подумайте, нужно ли это для всех страниц,
-                                 или только для главной/страницы талантов.
-                                 Для начала можно закомментировать. */
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		/* overflow: hidden; */
 	}
 
-	/* Дополнительные базовые стили, если нужны */
 	body {
-		background-color: #1a1a1a; /* Пример темного фонового цвета */
-		color: #f0ff0f; /* Пример цвета текста */
-		font-family: sans-serif; /* Пример шрифта */
+		background-color: #1a1a1a;
+		color: #f0ff0f;
+		font-family: sans-serif;
 	}
 </style>

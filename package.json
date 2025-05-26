@@ -65,5 +65,8 @@
 		"*.{json,css,md}": [
 			"prettier --write"
 		]
+	},
+	"dependencies": {
+		"@vercel/analytics": "^1.5.0"
 	}
 }
