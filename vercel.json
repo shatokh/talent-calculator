@@ -1,19 +1,12 @@
 {
   "version": 2,
 
-  "builds": [
-    {
-      "src": "svelte.config.js",
-      "use": "@sveltejs/adapter-vercel"
-    }
-  ],
-
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600" },
-        { "key": "X-Robots-Tag",   "value": "index, follow" }
+        { "key": "Cache-Control",  "value": "public, max-age=3600" },
+        { "key": "X-Robots-Tag",    "value": "index, follow" }
       ]
     }
   ],
