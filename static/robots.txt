@@ -1,0 +1,6 @@
+# Allow all crawlers to index everything
+User-agent: *
+Allow: /
+
+# Where the sitemap is located
+Sitemap: https://talent-calculator-ecru.vercel.app/sitemap.xml
