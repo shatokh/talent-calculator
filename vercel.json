@@ -1,46 +1,29 @@
 {
   "version": 2,
+
   "builds": [
     {
       "src": "svelte.config.js",
       "use": "@sveltejs/adapter-vercel"
     }
   ],
-  "routes": [
-    {
-      "src": "/robots.txt",
-      "headers": {
-        "Content-Type": "text/plain"
-      },
-      "dest": "/robots.txt"
-    },
-    {
-      "src": "/sitemap.xml",
-      "headers": {
-        "Content-Type": "application/xml"
-      },
-      "dest": "/sitemap.xml"
-    }
-  ],
+
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600"
-        },
-        {
-          "key": "X-Robots-Tag",
-          "value": "index, follow"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=3600" },
+        { "key": "X-Robots-Tag",   "value": "index, follow" }
       ]
     }
   ],
+
   "env": {
     "NODE_ENV": "production"
   },
-  "git": {
-    "branches": ["master"]
+
+  "github": {
+
+    "productionBranch": "master"
   }
 }
