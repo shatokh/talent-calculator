@@ -21,12 +21,32 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: 'npm'
+
+      - name: Set up Docker Buildx
+        if: github.ref == 'refs/heads/dev'
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker dev image
+        if: github.ref == 'refs/heads/dev'
+        run: docker build -f Dockerfile.dev -t talent-calculator:dev .
+
+      - name: Start app container
+        if: github.ref == 'refs/heads/dev'
+        run: |
+          docker run -d --name talent-app -p 5173:5173 talent-calculator:dev
+          echo "APP_URL=http://localhost:5173" >> $GITHUB_ENV
+
+      - name: Wait for app to be ready
+        if: github.ref == 'refs/heads/dev'
+        run: npx wait-on $APP_URL
 
       - name: Install dependencies
         run: npm ci
@@ -35,10 +55,12 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        # настроено в playwright.config.ts: webServer и репортеры (junit/html)
         run: npx playwright test
 
-      # HTML-отчёт Playwright
+      - name: Stop app container
+        if: always() && github.ref == 'refs/heads/dev'
+        run: docker stop talent-app
+
       - name: Upload Playwright HTML Report
         if: always()
         uses: actions/upload-artifact@v4
@@ -46,8 +68,6 @@ jobs:
           name: playwright-report
           path: playwright-report/
 
-      # JUnit-XML результаты (нужно включить в playwright.config.ts):
-      #   reporter: [['junit', { outputFile: 'test-results/results.xml' }]]
       - name: Upload JUnit Results
         if: always()
         uses: actions/upload-artifact@v4
@@ -55,8 +75,6 @@ jobs:
           name: junit-results
           path: test-results/**/*.xml
 
-      # Скриншоты при падениях (если у вас в playwright.config.ts включено сохранение):
-      #   screenshot: 'only-on-failure'
       - name: Upload Failure Screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -64,7 +82,6 @@ jobs:
           name: failure-screenshots
           path: test-results/screenshots/
 
-      # Видео проваленных тестов (если включено video: 'retry-with-video')
       - name: Upload Failure Videos
         if: always()
         uses: actions/upload-artifact@v4
