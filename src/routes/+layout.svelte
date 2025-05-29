@@ -4,8 +4,8 @@
   import { dev } from '$app/environment';
   import { inject } from '@vercel/analytics';
   
-  // Внедряем Vercel Web Analytics — 
-  // в продакшне подтянется /_vercel/insights/script.js автоматически после деплоя
+  // Inject Vercel Web Analytics —
+  // In production, /_vercel/insights/script.js will be loaded automatically after deploy
   inject({ mode: dev ? 'development' : 'production' });
 
   let { children } = $props();
@@ -14,7 +14,7 @@
 <svelte:head>
   <!-- Primary Meta Tags -->
   <title>Talent Calculator | Choose Your Class</title>
-  <!-- … остальные мета-теги … -->
+  <!-- ... other meta tags ... -->
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" />

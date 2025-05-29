@@ -2,17 +2,17 @@
 # Stage 1: build
 FROM node:22-alpine AS build
 WORKDIR /app
-# 1. Кэшируем зависимости
+# 1. Cache dependencies
 COPY package*.json ./
 RUN npm ci
-# 2. Копируем исходники и собираем статику
+# 2. Copy sources and build static files
 COPY . .
 RUN npm run build
 # Stage 2: serve
 FROM nginx:alpine
-# 3. Копируем собранные файлы в папку nginx
+# 3. Copy built files to nginx folder
 COPY --from=build /app/dist /usr/share/nginx/html
-# 4. Открываем порт 80
+# 4. Expose port 80
 EXPOSE 80
-# 5. Запускаем nginx в форграунд-режиме
+# 5. Run nginx in foreground mode
 CMD ["nginx", "-g", "daemon off;"]

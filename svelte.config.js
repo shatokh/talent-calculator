@@ -4,19 +4,19 @@ import { resolve } from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Поддержка Svelte preprocessing
-	preprocess: vitePreprocess(),
+    // Svelte preprocessing support
+    preprocess: vitePreprocess(),
 
-	kit: {
-		// Vercel требует специальный адаптер
-		adapter: adapter(),
+    kit: {
+        // Vercel requires a special adapter
+        adapter: adapter(),
 
-		// Алиасы для удобных импортов
-		alias: {
-			$lib: resolve('./src/lib')
-			// Можно добавить дополнительные алиасы при необходимости
-		}
-	}
+        // Aliases for convenient imports
+        alias: {
+            $lib: resolve('./src/lib')
+            // You can add additional aliases if needed
+        }
+    }
 };
 
 export default config;

@@ -4,14 +4,14 @@ import TalentButton from '../TalentButton.svelte';
 import type { Talent } from '$lib/types'; // Убедитесь, что Talent Type доступен по этому пути
 
 describe('TalentButton', () => {
-	// Определяем общие данные для тестов
+	// Define common test data
 	const sampleTalent: Talent = {
 		id: 't1',
 		nameRU: 'Тестовый талант',
 		nameEN: 'Test Talent',
 		descriptionRU: 'Описание тестового таланта',
 		descriptionEN: 'Description of test talent',
-		icon: '/images/talents/test-icon.png', // Используем более общий путь к иконке
+		icon: '/images/talents/test-icon.png', // Use a more generic icon path
 		type: 'main_active',
 		shape: 'round',
 		position: { row: 1, col: 1 },
@@ -19,7 +19,7 @@ describe('TalentButton', () => {
 		maxRank: 1
 	};
 
-	// Очистка DOM после каждого теста
+	// Cleanup DOM after each test
 	afterEach(() => cleanup());
 
 	it('should render the talent icon with correct src and alt attributes', () => {
@@ -65,7 +65,7 @@ describe('TalentButton', () => {
 		expect(button).toHaveClass('active-state');
 	});
 
-	// Дополнительный тест: если кнопка активна изначально
+	// Additional test: if the button is active initially
 	it('should have "active-state" class when isActive prop is true on initial render', () => {
 		// Arrange
 		render(TalentButton, {
