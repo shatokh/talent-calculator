@@ -1,22 +1,18 @@
 {
-  "version": 2,
-
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "git": {
+    "deploymentEnabled": {
+      "*": false,
+      "master": true
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Cache-Control",  "value": "public, max-age=3600" },
-        { "key": "X-Robots-Tag",    "value": "index, follow" }
+        { "key": "Cache-Control", "value": "public, max-age=3600" },
+        { "key": "X-Robots-Tag",   "value": "index, follow" }
       ]
     }
-  ],
-
-  "env": {
-    "NODE_ENV": "production"
-  },
-
-  "github": {
-
-    "productionBranch": "master"
-  }
+  ]
 }
