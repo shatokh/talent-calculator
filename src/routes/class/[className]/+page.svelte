@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
-	import ActionButton from '$lib/components/ActionButton.svelte'; // Импортируем компонент
+	import ActionButton from '$lib/components/ActionButton.svelte';
 
 	const cls = $page.params.className;
 

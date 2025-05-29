@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { Talent } from '$lib/types';
 
-	// Пропсы компонента
 	export let talent: Talent;
 	export let isActive: boolean = false;
 </script>
@@ -19,12 +18,10 @@
 // TO DO : добавить поддержку для других форм (круг, квадрат и ромб)
 
 <style>
-	/* Форма ромба через clip-path */
 	.clip-path-rhombus {
 		clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 	}
 
-	/* Базовые стили кнопки */
 	button {
 		background: transparent;
 		border: none;
@@ -33,13 +30,11 @@
 		padding: 0;
 	}
 
-	/* Стиль активного состояния (яркость) */
 	.active-state {
 		box-shadow: 0 0 8px rgba(255, 223, 0, 0.8);
 		border: 2px solid gold;
 	}
 
-	/* Убираем лишние отступы у картинки */
 	img {
 		display: block;
 	}

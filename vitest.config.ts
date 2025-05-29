@@ -5,20 +5,20 @@ import { svelteTesting } from '@testing-library/svelte/vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-	plugins: [
-		svelte(), // компилирует .svelte-файлы в web-режиме
-		tsconfigPaths(), // резолвит ваши алиасы из tsconfig
-		svelteTesting() // добавляет поддержку @testing-library/svelte
-	],
+    plugins: [
+        svelte(), // compiles .svelte files in web mode
+        tsconfigPaths(), // resolves your aliases from tsconfig
+        svelteTesting() // adds support for @testing-library/svelte
+    ],
 
-	resolve: {
-		dedupe: ['svelte'] // гарантируем одну копию Svelte
-	},
+    resolve: {
+        dedupe: ['svelte'] // ensure a single copy of Svelte
+    },
 
-	test: {
-		environment: 'jsdom', // браузерное окружение
-		globals: true, // describe/it/expect без импорта
-		setupFiles: 'src/setupTests.ts', // ваш setup-файл
-		include: ['src/**/*.{test,spec}.{js,ts,svelte}']
-	}
+    test: {
+        environment: 'jsdom', // browser-like environment
+        globals: true, // describe/it/expect without import
+        setupFiles: 'src/setupTests.ts', // your setup file
+        include: ['src/**/*.{test,spec}.{js,ts,svelte}']
+    }
 });

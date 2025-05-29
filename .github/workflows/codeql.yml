@@ -11,7 +11,7 @@ on:
   pull_request:
     branches: [master]
   schedule:
-    - cron: '0 12 * * 4' # еженедельно по четвергам в 12:00 UTC
+    - cron: '0 12 * * 4' # weekly every  Thuesday at 12:00 UTC
 
 jobs:
   analyze:

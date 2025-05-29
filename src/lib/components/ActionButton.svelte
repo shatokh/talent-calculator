@@ -1,8 +1,4 @@
 <script lang="ts">
-	// createEventDispatcher больше не нужен для on:click пропсов,
-	// а для @render $slots.default() он также не используется.
-	// Если у вас есть кастомные события, которые вы хотите отправлять,
-	// вы можете использовать $on() или createEventDispatcher.
 
 	export let onClick: () => void;
 	export let testId: string = 'action-button';

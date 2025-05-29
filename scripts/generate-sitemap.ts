@@ -18,15 +18,15 @@ async function generate() {
   const path = resolve('static/sitemap.xml');
   const writeStream = createWriteStream(path);
 
-  sitemap.pipe(writeStream);              // Пайпим в файл
+  sitemap.pipe(writeStream);              // Pipe to file
 
   for (const link of links) {
-    sitemap.write(link);                  // Добавляем URL
+    sitemap.write(link);                  // Add URL
   }
 
-  sitemap.end();                          // Завершаем поток
+  sitemap.end();                          // End stream
 
-  await streamToPromise(sitemap);         // Ждём полного завершения генерации
+  await streamToPromise(sitemap);         // Wait for generation to complete
   console.log('✅ sitemap.xml generated at', path);
 }
 

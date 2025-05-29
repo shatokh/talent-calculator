@@ -1,15 +1,15 @@
 # Dockerfile.dev
-# Используем легковесный Alpine с Node.js 24.x
+# Use lightweight Alpine with Node.js 24.x
 FROM node:24-alpine
-# Создаём рабочую директорию
+# Set working directory
 WORKDIR /app
-# Копируем package.json и package-lock.json для кеширования npm ci
+# Copy package.json and package-lock.json for npm ci caching
 COPY package*.json ./
-# Устанавливаем зависимости
+# Install dependencies
 RUN npm ci
-# Копируем весь код проекта
+# Copy all project files
 COPY . .
-# Открываем порт Vite (5173 по умолчанию)
+# Expose Vite port (5173 by default)
 EXPOSE 5173
-# Запускаем режим разработки, слушая все интерфейсы
+# Start development mode, listening on all interfaces
 CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

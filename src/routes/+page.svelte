@@ -27,7 +27,7 @@
     class="absolute inset-1/2 transform -translate-x-1/2 -translate-y-1/2
            flex flex-col items-center gap-y-[75px]"
   >
-    <!-- Первый ряд: 2 иконки -->
+    <!-- First row. 2 icons-->
     <div class="flex gap-x-[75px]">
       {#each row1 as item (item.id)}
         <a
@@ -60,7 +60,7 @@
       {/each}
     </div>
 
-    <!-- Второй ряд: 3 иконки -->
+    <!-- Second row. 3 icons -->
     <div class="flex gap-x-[75px]">
       {#each row2 as item (item.id)}
         <a

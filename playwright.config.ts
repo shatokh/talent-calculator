@@ -4,7 +4,7 @@ import { defineConfig, devices } from '@playwright/test';
 const isCi = !!process.env.CI;
 
 export default defineConfig({
-  // Автозапуск сервера
+  // Auto-start server
   webServer: {
     command: isCi
       ? 'npm run build && npm run preview -- --port 5173'
@@ -14,14 +14,14 @@ export default defineConfig({
     timeout: 120 * 1000,
   },
 
-  // Репортеры
+  // Reporters
   reporter: [
     ['list'],
     ['junit', { outputFile: 'test-results/results.xml' }],
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
   ],
 
-  // Общие настройки тестов
+  // General test settings
   testDir: 'e2e',
   timeout: 30_000,
   retries: isCi ? 1 : 0,
@@ -36,7 +36,7 @@ export default defineConfig({
     video: 'retry-with-video',
   },
 
-  // Проекты (только Chromium в CI)
+  // Projects (Chromium only in CI)
   projects: [
     {
       name: 'chromium',

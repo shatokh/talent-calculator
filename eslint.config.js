@@ -10,49 +10,49 @@ import ts from 'typescript-eslint';
 const gitignorePath = fileURLToPath(new URL('./.gitignore', import.meta.url));
 
 export default ts.config(
-	includeIgnoreFile(gitignorePath),
-	js.configs.recommended,
-	...ts.configs.recommended,
-	// Используем flat/recommended для Svelte, который уже включает парсер
-	...sveltePlugin.configs['flat/recommended'],
-	prettier,
-	...sveltePlugin.configs['flat/prettier'], // Используем flat/prettier для Svelte
-	{
-		languageOptions: {
-			globals: {
-				...globals.browser,
-				...globals.node,
-				// <--- ДОБАВЛЕНО: Явно объявляем руны как глобальные для ESLint
-				// Это помогает ESLint понять, что эти символы не являются неопределенными
-				$props: 'readonly',
-				$slots: 'readonly',
-				$state: 'readonly',
-				$derived: 'readonly',
-				$effect: 'readonly',
-				$host: 'readonly',
-				$browser: 'readonly',
-				$render_effect: 'readonly'
-			}
-		},
-		rules: {
-			// 'no-undef': 'off', // <--- Можно попробовать удалить, если globals с рунами сработают
-			// Если ошибки по no-undef все еще есть, верните эту строку.
-			// 'no-unused-vars': 'off', // Опционально: если ESLint жалуется на неиспользуемые переменные, связанные с рунами
-		}
-	},
-	{
-		files: ['**/*.svelte'], // Применяем эти настройки только к Svelte-файлам
-		languageOptions: {
-			parserOptions: {
-				// projectService: true, // Опционально: может замедлять, если не нужно
-				extraFileExtensions: ['.svelte'],
-				parser: ts.parser, // Svelte-парсер будет использовать TypeScript-парсер
-				project: true // <--- КРИТИЧЕСКИ ВАЖНО для TypeScript в ESLint
-			}
-		}
-	},
-	{
-		// Игнорируем папки, которые не должны линтиться
-		ignores: ['build/', '.svelte-kit/', 'node_modules/', 'dist/']
-	}
+    includeIgnoreFile(gitignorePath),
+    js.configs.recommended,
+    ...ts.configs.recommended,
+    // Use flat/recommended for Svelte, which already includes the parser
+    ...sveltePlugin.configs['flat/recommended'],
+    prettier,
+    ...sveltePlugin.configs['flat/prettier'], // Use flat/prettier for Svelte
+    {
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+                ...globals.node,
+                // Explicitly declare runes as globals for ESLint
+                // This helps ESLint understand that these symbols are not undefined
+                $props: 'readonly',
+                $slots: 'readonly',
+                $state: 'readonly',
+                $derived: 'readonly',
+                $effect: 'readonly',
+                $host: 'readonly',
+                $browser: 'readonly',
+                $render_effect: 'readonly'
+            }
+        },
+        rules: {
+            // 'no-undef': 'off', // You can try removing this if globals for runes work
+            // If you still get no-undef errors, add this line back.
+            // 'no-unused-vars': 'off', // Optional: if ESLint complains about unused variables related to runes
+        }
+    },
+    {
+        files: ['**/*.svelte'], // Apply these settings only to Svelte files
+        languageOptions: {
+            parserOptions: {
+                // projectService: true, // Optional: may slow down if not needed
+                extraFileExtensions: ['.svelte'],
+                parser: ts.parser, // Svelte parser will use TypeScript parser
+                project: true // CRITICALLY IMPORTANT for TypeScript in ESLint
+            }
+        }
+    },
+    {
+        // Ignore folders that should not be linted
+        ignores: ['build/', '.svelte-kit/', 'node_modules/', 'dist/']
+    }
 );
