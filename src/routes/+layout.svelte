@@ -3,6 +3,10 @@
   import '../app.css';
   import { dev } from '$app/environment';
   import { inject } from '@vercel/analytics';
+  import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+
+  // Inject Vercel Speed Insights
+  injectSpeedInsights();
   
   // Inject Vercel Web Analytics —
   // In production, /_vercel/insights/script.js will be loaded automatically after deploy
