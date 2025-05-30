@@ -6,7 +6,6 @@
 	"scripts": {
 		"dev": "vite dev",
         "build": "vite build",
-        "vercel-build": "svelte-kit build",
 		"postbuild": "npm run generate:sitemap",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
