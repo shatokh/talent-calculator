@@ -20,16 +20,26 @@ export class ClassSelectionPage {
     static readonly HUNTER_TALENT_URL_REGEX = /.*\/class\/hunter/;
     static readonly MAGE_TALENT_URL_REGEX = /.*\/class\/mage/;
 
-    // Locators for class links on the selection page
+    // Locator for the web-version grid container
+    private get webGrid() {
+        return this.page.getByTestId('desktop-class-grid');
+    }
+
+    // Locators for class links on the selection page (scoped to webGrid)
     getClassLink(classId: string) {
-        return this.page.getByTestId(`class-link-${classId}`);
+        return this.webGrid.getByTestId(`class-link-${classId}`);
     }
 
     getClassIcon(classId: string) {
-        return this.page.getByTestId(`class-icon-${classId}`);
+        return this.webGrid.getByTestId(`class-icon-${classId}`);
     }
 
     getClassLabel(classId: string) {
-        return this.page.getByTestId(`class-label-${classId}`);
+        return this.webGrid.getByTestId(`class-label-${classId}`);
     }
+
+    // (Optional) можно добавить mobileGrid для мобильных тестов
+    // private get mobileGrid() {
+    //     return this.page.getByTestId('mobile-class-grid');
+    // }
 }
