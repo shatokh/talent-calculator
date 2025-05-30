@@ -21,7 +21,7 @@
   class="relative w-full h-screen bg-cover bg-center"
   style="background-image: url('/images/backgrounds/background.png');"
 >
-  <!-- DESKTOP (md+): две строки, иконки 100×100 px без изменений -->
+  <!-- WEB (md+): две строки, иконки 100×100 px без изменений -->
   <div class="hidden md:block">
     <div
       class="absolute inset-1/2 transform -translate-x-1/2 -translate-y-1/2
