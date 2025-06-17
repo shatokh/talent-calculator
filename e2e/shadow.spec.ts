@@ -1,4 +1,4 @@
-// e2e/guardian.spec.ts
+// e2e/shadow.spec.ts
 import { test, expect } from '@playwright/test';
 import { ClassSelectionPage } from './pageObjects/classSelectionPage'; // Импортируем Page Object для страницы выбора классов
 import { TalentPage } from './pageObjects/talentPage'; // Импортируем Page Object для страницы талантов
